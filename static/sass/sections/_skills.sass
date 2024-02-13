@@ -1,0 +1,166 @@
+$block-heighy: 450px
+
+.skills
+  position: relative
+  width: 100%
+  min-height: 550px
+  display: flex
+  flex-direction: column
+  align-items: center
+  overflow: hidden
+
+  &__title
+    margin-top: 90px
+    font-size: 4rem
+    letter-spacing: .3rem
+    text-transform: uppercase
+    color: #252839
+    -webkit-text-stroke: .5rem #383d52
+    transform: translateY(0) scale(1)
+    opacity: 1
+
+    &:before
+      position: absolute
+      content: attr(data-text)
+      color: #f6ff29
+      -webkit-text-stroke: 0 #383d52
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+
+  &__title.active
+    animation: skills-title-animation infinite 2s ease-in-out
+
+  &__wrapper
+    margin-top: 50px
+    width: 60%
+
+
+  &__slider
+    position: relative
+    width: 100%
+    height: 370px
+    overflow: hidden
+    opacity: 1
+    transform: translateY(0)
+
+    .item
+      position: absolute
+      top: 0
+      left: calc(50% - 97px)
+      width: 200px
+      height: 300px
+      text-align: center
+      padding: 20px
+      background: rgb(113, 242, 114)
+      border-radius: 10px
+      color: #000
+      transition: .5s
+
+      img
+        width: 50px
+        height: 50px
+
+  .skills__icon__wrapper
+    position: relative
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-wrap: wrap
+    margin-bottom: 50px
+    width: 100%
+
+
+    .skills__icon__item
+      position: relative
+      display: block
+      width: 50px
+      height: 70px
+      cursor: pointer
+      border: 1px dashed #fff
+      margin: 15px 20px
+      opacity: 0
+      transform: scale(2) translateY(300px)
+
+      img
+        width: 100%
+        height: 100%
+        object-fit: cover
+
+      .skills-description
+        position: absolute
+        left: -75px
+        color: rgb(246, 255, 41)
+        font-family: 'Nunito', sans-serif
+        font-size: 14px
+        line-height: 1.2
+        width: 200px
+        height: auto
+        padding: 7px 10px
+        text-align: center
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0))
+        backdrop-filter: blur(10px)
+        -webkit-backdrop-filter: blur(10px)
+        border-radius: 20px
+        border: 1px solid rgba(255, 255, 255, 0.18)
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37)
+        transform: translateY(0) scale(0)
+        transition: all .5s
+
+    .skills__icon__item:hover .skills-description
+      transform: translateY(-300px) scale(1)
+      z-index: 1000
+
+    .skills__icon__item:hover
+      animation: shake-bl 2s linear
+      z-index: 1000
+
+
+    .skills__icon__item.active:not(:hover)
+      animation: card-skills-animation 1.5s linear
+
+
+@keyframes card-skills-animation
+  from
+    transform: perspective(400px) rotateY(0deg)
+  to
+    transform: perspective(400px) rotateY(360deg)
+
+@-webkit-keyframes shake-bl
+  0%,
+  100%
+    --webkit-transform: rotate(0deg)
+    transform: rotate(0deg)
+    -webkit-transform-origin: 0 100%
+    transform-origin: 0 100%
+
+  10%
+    --webkit-transform: rotate(2deg)
+    transform: rotate(2deg)
+
+  20%,
+  40%,
+  60%
+    --webkit-transform: rotate(-4deg)
+    transform: rotate(-4deg)
+  30%,
+  50%,
+  70%
+    --webkit-transform: rotate(4deg)
+    transform: rotate(4deg)
+  80%
+    --webkit-transform: rotate(-2deg)
+    transform: rotate(-2deg)
+
+  90%
+    --webkit-transform: rotate(2deg)
+    transform: rotate(2deg)
+
+
+@keyframes skills-title-animation
+  50%
+    transform: translateY(30px)
+
+
+

@@ -1,0 +1,152 @@
+.expirience
+  position: relative
+  //background: rgb(248, 255, 82)
+  width: 100%
+  min-height: 350px
+  display: flex
+  flex-direction: column
+  align-items: center
+  overflow: hidden
+
+  &__title
+    position: relative
+    display: inline
+    margin-top: 40px
+    font-size: 4rem
+    letter-spacing: .3rem
+    text-transform: uppercase
+    user-select: none
+    color: #252839
+    -webkit-text-stroke: .5rem #383d52
+    top: -200px
+    scale: 0
+
+    &.active:before
+      position: absolute
+      content: attr(data-text)
+      top: 0
+      left: 0
+      height: 100%
+      width: 100%
+      color: #f6ff29
+      -webkit-text-stroke: 0 #383d52
+
+    &.active
+      animation: animate-expirience-title 1s linear forwards
+
+  &__wrapper
+    position: relative
+    margin-top: 45px
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 60%
+    font-size: 20px
+
+
+  &__list
+    position: relative
+    list-style: none
+
+
+    .list__item
+      position: relative
+      margin-bottom: 50px
+      opacity: 0
+
+    .expirience-line
+      position: absolute
+      content: ''
+      top: 32px
+      left: 46px
+      width: 1px
+      height: 0
+      background: rgba(255, 109, 0, .5)
+      z-index: -1
+
+
+    .expirience-inscription
+      position: absolute
+      content: ''
+      top: 22px
+      left: 38px
+
+      svg
+        fill: rgba(244, 253, 41, .7)
+
+
+    .expirience__icon
+      position: absolute
+      top: -5px
+      left: 9px
+      opacity: .7
+
+      .svg-icon-web
+        width: 50px
+        height: 50px
+
+
+    .item__wrapper
+      position: relative
+      margin-top: -29px
+      margin-left: 35px
+      color: #fff
+      user-select: none
+      font-family: 'Nunito', sans-serif
+
+
+      .year
+        display: inline
+        font-weight: 700
+        color: #fff
+
+      svg
+        width: 20px
+        height: 20px
+        margin-left: 10px
+        opacity: .7
+        fill: #f6ff29
+
+
+      .company
+        display: inline-block
+        margin-left: 5px
+        font-weight: 700
+        animation: animation-company 1.5s ease infinite
+
+
+      .job
+        margin-left: 25px
+        font-weight: 700
+        color: #f22465
+
+      .description
+        margin-left: 50px
+        font-family: "Poppins", sans-serif
+        font-size: 14px
+
+
+@keyframes animate-expirience-title
+  0%
+    transform: rotateY(0)
+  75%
+    transform: rotateY(360deg)
+  100%
+    transform: rotate(-5deg)
+
+@keyframes animation-company
+  0%, 100%
+    transform: scale(1, 1)
+  50%
+    transform: scale(1.2, 1)
+
+@keyframes rotate-scv-icon
+  0%
+    transform: rotate(0)
+  50%
+    transform: rotate(360deg)
+
+  100%
+    transform: rotate(-360deg)
+
+

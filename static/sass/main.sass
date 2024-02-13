@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900;1000&display=swap')
+
+*
+  padding: 0
+  margin: 0
+  box-sizing: border-box
+
+html
+  scroll-behavior: smooth
+
+body
+  background-image: url("../images/background/bg/body3.jpg")
+  background-size: 100vw
+  background-repeat: no-repeat
+  background-attachment: fixed
+  font-family: 'Amatic SC', cursive
+
+.upward
+  position: fixed
+  bottom: 900px
+  right: 40px
+  width: 70px
+  height: 70px
+  background: url('../images/icon/button-up.png')
+  background-size: cover
+  z-index: 1000
+  cursor: pointer
+  visibility: hidden
+  opacity: 0
+  transition: .5s
+
+.upward.active
+  visibility: visible
+  opacity: .7
+  bottom: 50px
+
+
+@import "sections/header"
+@import "sections/about"
+@import "sections/intermediate"
+@import "sections/expirience"
+@import "sections/skills"
+@import "sections/contacts"
+@import "other_files/_all_expirience"

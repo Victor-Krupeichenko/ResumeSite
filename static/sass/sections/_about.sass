@@ -1,0 +1,75 @@
+$block-heighy: 450px
+
+.about
+  position: relative
+  width: 100%
+  height: 550px
+  display: flex
+  flex-direction: column
+  align-items: center
+  overflow: hidden
+
+  &__block__top
+    position: absolute
+    clip-path: polygon(100% 0, 0 0, 50% 20%)
+    width: 100%
+    height: $block-heighy
+    //background: rgb(246, 255, 41)
+    //background: rgb(217, 100, 48)
+    z-index: 100
+
+
+  h2
+    margin-top: 90px
+    position: relative
+    color: #252839
+    font-size: 4rem
+    letter-spacing: .3rem
+    -webkit-text-stroke: .5rem #383d52
+    text-transform: uppercase
+    user-select: none
+    left: -1100px
+
+
+  h2.active:before
+    content: attr(data-text)
+    position: absolute
+    top: 0
+    left: 0
+    width: 0
+    height: 100%
+    color: #f6ff29
+    -webkit-text-stroke: 0 #383d52
+    overflow: hidden
+    animation: animate-text 3s linear infinite
+
+  &__text
+    width: 60%
+    position: relative
+    padding-top: 20px
+    //overflow: hidden
+    font-family: 'Nunito', sans-serif
+    line-height: 1.2
+
+
+    &__content
+      position: relative
+      color: #fff
+      font-size: 1.2rem
+      font-family: "Poppins", sans-serif
+      font-weight: 500
+      transform: translateY(400px)
+      transition: transform .5s
+
+
+@keyframes animate-text
+  0%, 10%, 100%
+    width: 0
+
+  70%, 90%
+    width: 100%
+
+
+
+
+

@@ -1,0 +1,355 @@
+$border-size: 2px
+$border-color: rgb(113, 242, 114)
+$time-duration: .5s
+$time-delay: 1s
+$right-border-size: 1px
+$indentation: 611px
+
+@mixin border-style
+  position: absolute
+  background: $border-color
+
+
+.header
+  position: relative
+  display: flex
+  justify-content: center
+  width: 100%
+  height: 100vh
+  overflow: hidden
+
+  &__left-top-border,
+  &__top-left-border,
+  &__left-bottom-border,
+  &__bottom-left-border,
+  &__right-top-border,
+  &__top-right-border,
+  &__right-bottom-border,
+  &__bottom-right-border
+    @include border-style
+
+
+  &__top-left-border,
+  &__top-right-border
+    top: 40px
+    width: 0
+    height: 1px
+
+  &__top-left-border
+    left: $indentation
+
+  &__top-right-border
+    right: $indentation
+
+  &__left-top-border,
+  &__right-top-border
+    top: 20px
+    height: 0
+    width: 1px
+
+
+  &__left-top-border
+    left: 20px
+
+
+  &__right-top-border
+    right: 20px
+
+
+  &__left-bottom-border,
+  &__right-bottom-border
+    bottom: 20px
+    width: 1px
+    height: 0
+
+  &__left-bottom-border
+    left: 20px
+
+  &__right-bottom-border
+    right: 20px
+
+
+  &__bottom-left-border,
+  &__bottom-right-border
+    bottom: 40px
+    width: 0
+    height: 1px
+
+  &__bottom-left-border
+    left: 5px
+
+  &__bottom-right-border
+    right: 5px
+
+
+  .navbar
+    position: absolute
+    left: 50%
+    transform: translateX(-50%)
+    display: flex
+    justify-content: center
+    align-items: center
+    top: 15px
+    height: 50px
+    width: 700px
+    background: rgb(113, 242, 114)
+    z-index: 1000
+    transition: left .5s
+
+
+    &:before,
+    &:after
+      position: absolute
+      content: ''
+      bottom: 0
+      width: 1px
+      height: 24px
+      background: $border-color
+
+    &:before
+      left: 0
+
+    &:after
+      right: 0
+
+
+    &__list
+      position: relative
+      width: 100%
+      display: flex
+      justify-content: space-around
+      align-items: center
+
+
+      &__link
+        position: relative
+        list-style: none
+        width: 70px
+        user-select: none
+
+
+      &__link.active a
+        color: rgb(113, 242, 114)
+        font-weight: 700
+        transform: rotate(-45deg)
+        transition: .5s
+
+      &__link a
+        display: block
+        position: relative
+        text-align: center
+        text-decoration: none
+        color: #fff
+        font-size: 20px
+        font-family: 'Amatic SC', cursive
+        font-weight: 700
+        text-transform: uppercase
+        overflow: hidden
+        z-index: 1
+
+
+    &__indicator
+      position: absolute
+      top: -10px
+      left: 34px
+      width: 70px
+      height: 67px
+      background: #f6ff29
+      border-radius: 0 0 10px 10px
+      transition: left .5s
+      border-bottom: $right-border-size solid $border-color
+
+      &:before
+        position: absolute
+        content: ''
+        width: 7px
+        height: 10px
+        top: 0
+        left: -7px
+        background: rgba(208, 214, 57, .8)
+        border-top-left-radius: 16px
+
+      &:after
+        position: absolute
+        content: ''
+        width: 7px
+        height: 10px
+        top: 0
+        right: -7px
+        border-top-right-radius: 16px
+        background: rgba(208, 214, 57, .8)
+
+
+  .navbar.vertical
+    position: fixed
+    z-index: 2000
+    left: 5%
+    width: 70px
+    height: 400px
+    background: rgba(113, 242, 114, .2)
+    transition: left .5s
+    border-radius: 16px
+
+    &:before,
+    &:after
+      background: none
+
+  .navbar.vertical .navbar__list
+    flex-direction: column
+
+  .navbar.vertical .navbar__list__link
+    height: 70px
+    display: flex
+    justify-content: center
+    align-items: center
+
+  .navbar.vertical .navbar__list__link a
+    display: block
+
+  .navbar.vertical .navbar__indicator
+    position: absolute
+    top: 33px
+    left: -7px
+    width: 85px
+    height: 54px
+    background: rgba(246, 255, 41, .9)
+    border-radius: 0 10px 10px 0
+    transition: .5s
+    border-bottom: none
+
+    &:before
+      position: absolute
+      content: ''
+      width: 7px
+      height: 5px
+      top: -5px
+      left: 0
+      background: rgba(208, 214, 57, .8)
+      border-top-left-radius: 16px
+
+    &:after
+      position: absolute
+      content: ''
+      width: 7px
+      height: 5px
+      top: 54px
+      left: 0
+      transform: rotate(-180deg)
+      background: rgba(208, 214, 57, .8)
+
+  &__content
+    top: 27%
+    position: relative
+    display: flex
+    flex-direction: column
+    align-items: center
+
+    &__title
+      font-size: 58px
+      color: #fff
+      font-weight: 700
+      letter-spacing: 2px
+      user-select: none
+
+    &__title div
+      display: inline-block
+
+    &__menu
+      display: flex
+      flex-direction: column
+      justify-content: center
+      align-items: center
+      transform: translateX(1000px)
+      margin-top: 42%
+      user-select: none
+      width: 200px
+
+      &-btn
+        width: 100%
+        cursor: pointer
+        display: flex
+        align-items: center
+
+
+      &-btn .text-option
+        color: rgb(246, 255, 41)
+        width: 100%
+        font-size: 25px
+        font-weight: 700
+        letter-spacing: 2px
+        display: flex
+        justify-content: flex-start
+
+      &-btn .icon-img-option
+        display: flex
+        align-items: center
+
+
+      &-btn .icon-img-option
+        width: 20px
+        height: 20px
+        transition: .5s
+
+      .type__files
+        list-style: none
+        width: 200px
+        position: relative
+
+
+        .option
+          position: relative
+          background: rgba(113, 242, 114, .7)
+          margin: 5px 0
+          transform-origin: top
+          opacity: 0
+          transform: scale(0) translateY(-130px)
+          transition: opacity .5s ease-in-out, transform .5s ease-in-out
+          transition-delay: calc(.1s * var(--i))
+
+
+      &-btn.active .icon-img-option
+        transition: .5s
+        transform: rotate(180deg)
+
+
+      &-btn.active ~ .type__files .option
+        transition: opacity .5s ease-in-out, transform .5s ease-in-out
+        transition-delay: calc(.1s * var(--i))
+        transform: scale(1) translateY(0)
+        opacity: 1
+
+
+      .option:first-child
+        border-top-left-radius: 8px
+        border-top-right-radius: 8px
+
+      .option:last-child
+        border-bottom-left-radius: 8px
+        border-bottom-right-radius: 8px
+
+      .option a
+        display: flex
+        align-items: center
+        font-weight: 700
+        font-size: 20px
+        color: #000
+        padding: 5px 10px
+        text-decoration: none
+
+        .icon-svg-option svg
+          fill: red
+          width: 25px
+          height: 25px
+
+        .icon-svg-option .word
+          fill: blue
+
+        .type
+          display: flex
+          width: 100%
+          justify-content: flex-end
+          color: rgb(246, 255, 41)
+
+      .option:hover
+        background: rgba(181, 216, 229, 0.4)
+

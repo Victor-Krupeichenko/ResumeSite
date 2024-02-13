@@ -1,0 +1,205 @@
+.contacts
+  padding-top: 70px
+  height: 620px
+  position: relative
+  display: flex
+  flex-direction: column
+  align-items: center
+  overflow: hidden
+
+
+  &__title
+    position: relative
+    font-size: 4rem
+    letter-spacing: .3rem
+    text-transform: uppercase
+    color: #252839
+    -webkit-text-stroke: .5rem #383d52
+    transform: translateX(0)
+
+
+    &:before
+      position: absolute
+      content: attr(data-text)
+      color: #f6ff29
+      -webkit-text-stroke: 0 #383d52
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+
+  &__title.active
+    animation: hu__hu__ infinite 2s ease-in-out
+
+
+  &__wrapper
+    width: 60%
+    margin-top: 50px
+    position: relative
+    display: flex
+    flex-direction: row
+    justify-content: center
+
+    .social__link
+      margin-top: 50px
+      position: relative
+      width: 40%
+      margin-right: 50px
+      display: flex
+      justify-content: center
+
+
+      .link
+        width: 70px
+        height: 70px
+        margin-right: 25px
+
+      .link:last-child
+        margin-right: 0
+
+      .link a svg
+        width: 100%
+        height: 100%
+
+    .contact__form
+      width: 50%
+      position: relative
+      opacity: 1
+
+      .form-message
+        margin-top: 20px
+        position: relative
+        width: 100%
+        display: flex
+        flex-direction: column
+
+        .group-input
+          position: relative
+          display: flex
+          flex-direction: row
+
+          .inputBox
+            position: relative
+            width: 100%
+            margin-right: 10px
+
+
+          .inputBox:last-child
+            margin-right: 0
+
+        .inputBox textarea, input
+          width: 100%
+          outline: none
+          background: linear-gradient(rgba(0, 0, 0, .48), rgba(255, 255, 255, .3))
+          border: 1px dashed #fff
+
+        .inputBox input
+          height: 30px
+          border-radius: 10px 0 0 0
+          color: #fff
+          padding: 10px 7px 0 7px
+          font-weight: bold
+
+        .inputBox:last-child input
+          border-radius: 0 10px 0 0
+
+        .inputBox label
+          position: absolute
+          top: 4px
+          left: 15px
+          color: #fff
+          z-index: -1
+
+        .inputBox span
+          position: absolute
+          top: 50px
+          left: 15px
+          color: #fff
+
+
+        .inputBox textarea
+          resize: none
+          margin-top: 14px
+          border-radius: 6px 6px 0 10px
+          color: #fff
+          padding: 10px 15px
+          font-size: 16px
+          font-weight: bold
+
+        .button-row
+          margin-top: 10px
+          position: relative
+          display: flex
+          justify-content: flex-end
+
+          .btn-contact-from
+            cursor: pointer
+            font-family: 'Amatic SC', cursive
+            font-size: 20px
+            text-transform: uppercase
+            padding: 7px 15px
+            border-radius: 0 0 10px 10px
+            color: #f6ff29
+            border: 1px dashed #fff
+            outline: none
+            background: transparent
+
+      .form-message .inputBox input:focus ~ label,
+      .form-message .inputBox input:valid ~ label,
+      .form-message .inputBox textarea:focus ~ span,
+      .form-message .inputBox textarea:valid ~ span
+        transform: translateY(-17px)
+        border-radius: 5px
+        color: rgb(37, 106, 4)
+        border: 1px solid rgb(37, 106, 4)
+        background: #fff
+        font-family: 'Nunito', sans-serif
+        font-size: 12px
+        width: 70px
+        padding: 3px 7px
+        z-index: 1
+
+  .scroll
+    position: absolute
+    width: calc(100% + 400px)
+    left: -400px
+    bottom: 10px
+    display: flex
+    box-shadow: 0 15px 10px rgba(0, 0, 0, .5)
+
+  .scroll div
+    background: rgba(246, 255, 41, .7)
+    color: #1d1104
+    font-size: 2em
+    text-transform: uppercase
+    letter-spacing: .2em
+    font-weight: 600
+    white-space: nowrap
+    animation: animate 60s linear infinite
+    animation-delay: -60s
+
+  .scroll div:nth-child(2)
+    animation: animate-two 60s linear infinite
+    animation-delay: -30s
+
+
+@keyframes hu__hu__
+  from, 33%, 66%, to
+    transform: rotate(4deg)
+  16%, 50%, 83%
+    transform: rotate(-4deg)
+
+@keyframes animate
+  0%
+    transform: translateX(100%)
+
+  100%
+    transform: translateX(-100%)
+
+
+@keyframes animate-two
+  0%
+    transform: translateX(0)
+
+  100%
+    transform: translateX(-200%)
