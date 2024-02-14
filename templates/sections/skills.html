@@ -1,0 +1,26 @@
+<div class="section skills" id="skills">
+    <h2 class="skills__title" data-text="Skills">Skills</h2>
+    <div class="skills__wrapper">
+        <div class="skills__slider">
+            {% for item in content.skills %}
+                {% if item.published %}
+                    <div class="item">
+                        {% if item.img %}
+                            <img src="{{ item.img }}" alt="{{ item.title }}-img">
+                        {% else %}
+                            <img src="../../static/images/icon/skills-icon/img31.png" alt="title-img">
+                        {% endif %}
+                        <div class="item-title">
+                            {{ item.title }}
+                        </div>
+                        <p class="item-description">
+                            {{ item.description }}
+                        </p>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="skills__icon__wrapper"></div>
+    </div>
+</div>
+
