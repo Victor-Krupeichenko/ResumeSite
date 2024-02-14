@@ -1,0 +1,38 @@
+{% extends 'extends/base.html' %}
+{% block title %}
+    {% if response['login_form'] %}
+        <title>Login</title>
+    {% elif response['expirience'] %}
+        <title>Expirience</title>
+    {% elif response['update_expirience'] %}
+        <title>Update Expirience</title>
+    {% else %}
+        <title>Register</title>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <div class="messages">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Закрыть"></button>
+                </div>
+            {% endfor %}
+        {% endwith %}
+    </div>
+
+
+    <form id="form" method="post" enctype="multipart/form-data">
+
+        {{ form.hidden_tag() }}
+        {% for field in form %}
+            {% if field.name == 'year_finish' and not response['update_expirience']%}
+                {{ field(value=0) }}
+            {% else %}
+                {{ field }}
+            {% endif %}
+        {% endfor %}
+    </form>
+{% endblock %}
