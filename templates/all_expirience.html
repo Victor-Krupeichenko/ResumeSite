@@ -1,0 +1,35 @@
+{% extends 'extends/base.html' %}
+{% block title %}
+    <title>All Expirience</title>
+{% endblock %}
+
+
+{% block content %}
+    <div class="my__expirience">
+        <div class="my__expirience__title__wrapper">
+            <h2 data-text="Expirience" class="expirience__title active">Expirience</h2>
+        </div>
+        {% if is_empty %}
+            <div class="empty">Записей нет</div>
+        {% endif %}
+        <div class="my__expirience__item__wrapper">
+            {% for item in result %}
+                <div class="my__expirience__item">
+                    <div class="my__expirience__item__year">{{ item.year_start }} - {% if item.year_finish %} {{ item.year_finish }} {% else %}...{% endif %}</div>
+                    <div class="my__expirience__item__company">{{ item.company }}</div>
+                    <div class="my__expirience__item__job">{{ item.job }}</div>
+                    <div class="my__expirience__item__description">{{ item.description }}</div>
+                    <div class="my__expirience__item__published">{{ item.published }}</div>
+                    <div class="my__expirience__item__update">
+                        <a class="btn-expirience__update"
+                           href="{{ url_for('expirience.update_expirience', expirience_id=item.id) }}">update</a>
+                    </div>
+                    <div class="my__expirience__item__delete">
+                        <a class="btn-expirience__delete"
+                           href="{{ url_for('expirience.delete_expirience', expirience_id=item.id) }}">delete</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
